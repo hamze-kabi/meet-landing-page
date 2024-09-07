@@ -1,0 +1,350 @@
+
+/* RWD starts with mobile screen sizes */
+
+@import "normalize.css";
+
+@font-face {
+  font-family: "redhat";
+  src: url("../fonts/RedHatDisplay-Regular.ttf");
+}
+
+:root {
+  font-size: 16px;
+  --woodrush: rgb(40, 40, 60);
+  --olive: rgb(140, 140, 150);
+  --hippie-blue: rgb(80, 150, 170);
+  --lilac-bush: rgb(133, 95, 178);
+  --asagi-blue: rgb(70, 144, 160);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+}
+
+/* all the contents are fit inside a grid with several rows. mobile version is consisted of 2 cols, tablet and desktop version are consisted of 4 cols*/
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-areas: 
+  "logo logo"
+  "image-hero image-hero"
+  "text-section-overview text-section-overview"
+  "line-circle1 line-circle1"
+  "img1 img2"
+  "img3 img4"
+  "text-section-features text-section-features"
+  "line-circle2 line-circle2"
+  "footer footer";
+  justify-content: center;
+  padding-top: 3rem;
+  row-gap: 3rem;
+  font-family: redhat;
+  overflow: hidden;
+}
+
+.logo {
+  grid-area: logo;
+  justify-self: center;
+}
+
+.image-hero {
+  grid-area: image-hero;
+  width: 100%;
+  height: auto;
+  scale: 1.07;
+  translate: 0 1rem;
+}
+
+/* gets displayed on desktop screen sizes */
+.image-hero-left {
+  display: none;
+}
+
+/* gets displayed on desktop screen sizes */
+.image-hero-right {
+  display: none;
+}
+
+.text-section {
+  text-align: center;
+}
+
+.text-section#overview {
+  grid-area: text-section-overview;
+}
+
+.text-section h1 {
+  font-size: 2rem;
+  margin: 0 2rem;
+}
+
+.text-section#overview h1, .text-section#features h1 {
+  color: var(--woodrush);
+}
+
+.text-section p {
+  color: var(--olive);
+  margin: 1.5rem 1rem;
+}
+
+/* on tablet and desktop versions flex-direction converts to row */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+button {
+  height: 3.5rem;
+  border: 0;
+  border-radius: 2rem;
+  color: white;
+  font-size:medium;
+  font-weight: bolder;
+}
+
+.download#no1 {
+  background-color: var(--hippie-blue);
+  width: 11rem;
+  min-width: fit-content;
+  max-width: 13.5rem;
+}
+
+.whatisit {
+  background-color: var(--lilac-bush);
+  width: 7rem;
+  min-width: fit-content;
+  max-width: 12rem;
+}
+
+
+/* both line and circle are borders with given shapes */
+.line-circle {
+  justify-self: center;
+  color: var(--olive);
+  font-weight: 900;
+}
+
+.line {
+  border-right: 1px solid var(--olive);
+  height: 8rem;
+  margin-right: 50%;
+}
+
+.circle {
+  border: 1px solid var(--olive);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  justify-self: center;
+  margin-right: 50%;
+}
+
+/* could not center the text inside the circle, that's why I used <pre> and a left margin */
+.circle pre {
+  margin-left: 0.85rem;
+}
+
+.no1 {
+  grid-area: line-circle1;
+}
+
+.people-connecting {
+  width: 90%;
+  margin: -0.8rem 0.7rem;
+  border-radius: 0.4rem;
+}
+
+.people-connecting#img1 {
+  grid-area: img1;
+  justify-self: end;
+}
+
+.people-connecting#img2 {
+  grid-area: img2;
+}
+
+.people-connecting#img3 {
+  grid-area: img3;
+  justify-self: end;
+}
+
+.people-connecting#img4 {
+  grid-area: img4;
+}
+
+.text-section#features {
+  grid-area: text-section-features;
+}
+
+.text-section#features h4 {
+  letter-spacing: 0.2rem;
+  color: var(--asagi-blue);
+}
+
+.no2 {
+  grid-area: line-circle2;
+  margin-top: -1rem;
+  z-index: 1; /* in order to put it on the image below it*/
+}
+
+.no2 .circle {
+  background-color: white;
+}
+
+/* used the following properties to make the image inside the .footer to not get squeezed or stretched and it's parts out of .footer
+not to cause anything 
+on .footer  overflow: hidden;  on .image-footer   width: 100%;   and   height: auto;
+  To give the color --asagi-blue to the .image-footer, I used  background-color: var(--asagi-blue); on .footer and  opacity: 0.2; on .image-footer*/
+.footer {
+  grid-area: footer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  margin-top: -4.4rem;
+  background-color: var(--asagi-blue);
+}
+
+.image-footer {
+  width: 100%;
+  height: auto;
+  opacity: 0.2;
+}
+
+/* gets displayed on tablet version */
+.image-footer#tablet {
+  display: none;
+}
+
+/* gets displayed on desktop version */
+.image-footer#desktop {
+  display: none;
+}
+
+.text-section#footer {
+  position: absolute;
+  color: white;
+  margin-top: 4rem;
+}
+
+.text-section#footer p {
+  color: white;
+}
+
+.text-section#footer button {
+  background-color: var(--lilac-bush);
+  padding: 0 1.2rem;
+}
+
+.text-section#footer span {
+  color: rgb(216, 183, 254);
+}
+
+/* .text-section#footer gets out of .footer when the screen height gets smaller than 376px(tested on iphone SE),
+that's why when the .footer height converts from 60vh to 100vh when the screen heigh drops below 376px.
+it comes in handy when view by some smaller smartphones when their orientation is in landscape */
+@media only screen and (height < 376px) {
+  .footer {
+    height: 100vh;
+  }  
+}
+
+/* tablets responsiveness */
+@media only screen and (767px < width < 1279px) {
+  .container {
+    grid-template-areas: 
+    "logo logo logo logo"
+    "image-hero image-hero image-hero image-hero"
+    "text-section-overview text-section-overview text-section-overview text-section-overview"
+    "line-circle1 line-circle1 line-circle1 line-circle1"
+    "img1 img2 img3 img4"
+    "text-section-features text-section-features text-section-features text-section-features"
+    "line-circle2 line-circle2 line-circle2 line-circle2"
+    "footer footer footer footer";
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .download#no1 , .whatisit {
+    margin: auto 0;
+    padding: 0 2rem;
+  }
+
+  .image-footer#mobile {
+    display: none;
+  }
+
+  .image-footer#tablet {
+    display: block;
+  }
+}
+
+/* desktop responsiveness */
+@media only screen and (width > 1279px) {
+  .container {
+    grid-template-columns: repeat(4, minmax(320px, 1fr));
+    grid-template-areas: 
+    "logo logo logo logo"
+    "image-hero-left text-section-overview text-section-overview image-hero-right"
+    "line-circle1 line-circle1 line-circle1 line-circle1"
+    "img1 img2 img3 img4"
+    "text-section-features text-section-features text-section-features text-section-features"
+    "line-circle2 line-circle2 line-circle2 line-circle2"
+    "footer footer footer footer";
+  }
+
+  .image-hero {
+    display: none;
+  }
+  .image-hero-left {
+    display:block;
+    grid-area: image-hero-left;
+    justify-self: end;
+  }
+  
+  .image-hero-right {
+    display:block;
+    grid-area: image-hero-right;
+    justify-self: start;
+  }
+
+  .text-section#overview {
+    align-self: center;
+  }
+
+  .text-section h1 {
+    font-size: 3.5rem;
+  }
+
+  .text-section p {
+    font-size: 1.5rem;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .download#no1 , .whatisit {
+    margin: auto 0;
+    padding: 0 2rem;
+  }
+
+  .image-footer#mobile {
+    display: none;
+  }
+
+  .image-footer#desktop {
+    display: block;
+  }
+}
