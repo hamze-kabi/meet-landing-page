@@ -23,8 +23,8 @@ This is a solution to the [Meet landing page challenge on Frontend Mentor](https
 
 ### Links
 
-- Solution URL: [https://github.com/HamzeKabi/meet-landing-page](https://github.com/HamzeKabi/meet-landing-page)
-- Live Site URL: [https://hamzekabi.github.io/meet-landing-page/](https://hamzekabi.github.io/meet-landing-page/)
+- Solution URL: [https://github.com/hamze-kabi/meet-landing-page](https://github.com/hamze-kabi/meet-landing-page)
+- Live Site URL: [https://hamze-kabi.github.io/meet-landing-page/](https://hamze-kabi.github.io/meet-landing-page/)
 
 ## My process
 
@@ -38,5 +38,4 @@ This is a solution to the [Meet landing page challenge on Frontend Mentor](https
 
 ## Author
 
-- Github - [https://github.com/HamzeKabi](https://github.com/HamzeKabi)
-- Frontend Mentor - [@HamzeKabi](https://www.frontendmentor.io/profile/HamzeKabi)
+- Github - [https://github.com/hamze-kabi](https://github.com/hamze-kabi)
